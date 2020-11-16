@@ -1,0 +1,14 @@
+{
+    "social" : [
+        {
+            "name": "Facebook",
+            "link": "https://www.facebook.com/muafamilia/",
+            "icon": "facebook-square"
+        },
+        {
+            "name": "Instagram",
+            "link": "https://www.instagram.com/muafamilia/",
+            "icon": "instagram"
+        }
+    ]
+}
