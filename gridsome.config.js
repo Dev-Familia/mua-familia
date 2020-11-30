@@ -5,6 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
+  siteUrl: 'https://muafamilia.pl',
   siteName: 'MUA Familia | Najszczęśliwsza Agencja Wizażystek',
   siteDescription: "Agencja wizażystek z Krakowa oferująca makijaż ślubny, okolicznościowy oraz makijaż sesyjny.",
   plugins: [
@@ -29,6 +30,12 @@ module.exports = {
         id: 'GTM-5Z84QGN',
         enabled: true,
         debug: true
+      }
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        config: {}
       }
     }
     // {
