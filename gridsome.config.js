@@ -31,7 +31,7 @@ module.exports = {
       options: {
         id: 'GTM-5Z84QGN',
         enabled: true,
-        debug: true
+        debug: false
       }
     },
     {
