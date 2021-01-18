@@ -1,44 +1,37 @@
 <template>
-  <a role="button" @click.prevent="toggleTheme()"  
-      :aria-label="'Toggle ' + nextTheme" 
-      :title="'Toggle ' + nextTheme"
-      class="toggle-theme"
+  <a role="button" class="transform hover:scale-110" @click.prevent="toggleTheme()"
+      :aria-label="actionLabel"
+      :title="actionLabel"
     >
-    
-    <font-awesome :icon="['fas', 'sun']" v-if="theme === 'dark'"></font-awesome>
-    <font-awesome :icon="['fas', 'moon']" v-if="theme === 'light'"></font-awesome>
+    <span v-if="currentTheme === 'dark'" >
+      <svg class="mx-auto" width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 9.375C11.9004 9.375 9.375 11.9004 9.375 15C9.375 18.0996 11.9004 20.625 15 20.625C18.0996 20.625 20.625 18.0996 20.625 15C20.625 11.9004 18.0996 9.375 15 9.375ZM29.4375 14.0918L23.8887 11.3203L25.8516 5.4375C26.1152 4.64063 25.3594 3.88477 24.5684 4.1543L18.6855 6.11719L15.9082 0.5625C15.5332 -0.1875 14.4668 -0.1875 14.0918 0.5625L11.3203 6.11133L5.43164 4.14844C4.63477 3.88477 3.87891 4.64062 4.14844 5.43164L6.11133 11.3145L0.5625 14.0918C-0.1875 14.4668 -0.1875 15.5332 0.5625 15.9082L6.11133 18.6797L4.14844 24.5684C3.88477 25.3652 4.64062 26.1211 5.43164 25.8516L11.3145 23.8887L14.0859 29.4375C14.4609 30.1875 15.5273 30.1875 15.9023 29.4375L18.6738 23.8887L24.5566 25.8516C25.3535 26.1152 26.1094 25.3594 25.8398 24.5684L23.877 18.6855L29.4258 15.9141C30.1875 15.5332 30.1875 14.4668 29.4375 14.0918V14.0918ZM20.3027 20.3027C17.3789 23.2266 12.6211 23.2266 9.69727 20.3027C6.77344 17.3789 6.77344 12.6211 9.69727 9.69727C12.6211 6.77344 17.3789 6.77344 20.3027 9.69727C23.2266 12.6211 23.2266 17.3789 20.3027 20.3027Z" fill="#F2F2F2"/>
+      </svg>
+    </span>
+    <span v-if="currentTheme === 'light'">
+      <svg class="mx-auto" width="20" height="20" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M17.3784 30C22.5553 30 27.2835 27.895 30.416 24.4458C30.8794 23.9355 30.3741 23.1901 29.6579 23.312C21.5149 24.698 14.0369 19.1181 14.0369 11.7717C14.0369 7.53996 16.5717 3.64857 20.6913 1.55332C21.3264 1.23035 21.1667 0.369902 20.4451 0.250781C19.4335 0.084078 18.407 0.000136895 17.3784 0C8.11383 0 0.594397 6.70963 0.594397 15C0.594397 23.2798 8.10203 30 17.3784 30Z" fill="#121212"/>
+      </svg>
+    </span>
   </a>
 </template>
 
 <script>
-let themes = ['light', 'dark']
+import layoutStore from "~/data/layoutStore";
 
 export default {
-  props: {
-    theme: {
-      type: String,
-    },
-  },
-
   computed: {
-    nextTheme() {
-      const currentIndex = themes.indexOf(this.theme)
-      const nextIndex = (currentIndex + 1) % themes.length
-      return themes[nextIndex]
+    currentTheme() {
+      return layoutStore.currentTheme;
+    },
+    actionLabel() {
+      return layoutStore.actionLabel;
     }
   },
   methods: {
     toggleTheme() {
-      const currentIndex = themes.indexOf(this.theme);
-      const nextIndex = (currentIndex + 1) % themes.length;
-      window.__setPreferredTheme(themes[nextIndex])
-
-      this.$emit('setTheme', themes[nextIndex])
+      layoutStore.toggleTheme();
     }
-  },
-  async mounted() {
-    // set default
-    if (typeof window.__theme !== 'undefined') this.$emit('setTheme', window.__theme)
   }
-}
+};
 </script>

@@ -3,7 +3,7 @@
     <div class="container mx-auto py-16">
       <div class="mb-4">
         <p>
-          Copyright {{ new Date().getFullYear() }} by {{ $static.metadata.siteName}} &middot; Powered by
+          Copyright {{ new Date().getFullYear() }} by {{ $static.metadata.siteName}}cPowered by
           <a
             href="https://www.gridsome.org"
             target="_blank"

@@ -1,6 +1,8 @@
 <template>
-  <div id="app" class="px-2 text-gray-300 dark:bg-black">
-    <slot />
+  <div id="app" class="max-w-screen-md h-full mx-auto text-black dark:text-white bg-white dark:bg-black leading-relaxed">
+    <the-header/>
+    <slot/>
+    <the-footer/>
   </div>
 </template>
 
@@ -13,16 +15,26 @@ query {
 </static-query>
 
 <script>
+import TheHeader from "~/components/Partials/TheHeader";
+import TheFooter from "~/components/Partials/TheFooter";
+import layoutStore from "~/data/layoutStore";
+
 export default {
-  data: function() {
-    return {
-      theme: "dark"
-    };
+  components: {
+    TheHeader,
+    TheFooter
+  },
+  mounted() {
+    window.addEventListener('resize', this.updateWidth);
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.updateWidth);
   },
   methods: {
-    setTheme(mode) {
-      this.theme = mode;
+    updateWidth() {
+      layoutStore.updateWindowWidth();
     }
   }
+
 };
 </script>

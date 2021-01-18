@@ -3,12 +3,14 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-
 module.exports = {
   siteUrl: 'https://muafamilia.pl',
   siteName: 'MUA Familia | Najszczęśliwsza Agencja Wizażystek',
   siteDescription: "Agencja wizażystek z Krakowa oferująca makijaż ślubny, okolicznościowy oraz makijaż sesyjny.",
   plugins: [
+    // {
+    //   use: 'gridsome-plugin-bundle-analyzer'
+    // },
     {
       use: 'gridsome-plugin-tailwindcss',
       options: {
@@ -37,7 +39,7 @@ module.exports = {
       options: {
         config: {}
       }
-    }
+    },
     // {
     //   use: 'gridsome-source-static-meta',
     //   options: {
@@ -93,11 +95,6 @@ module.exports = {
       plugins: [
         'remark-autolink-headings',
         'remark-attr',
-        ['gridsome-plugin-remark-prismjs-all', {
-          noInlineHighlight: false,
-          showLineNumbers: false,
-        }],
-        require('./packages/gridsome-plugin-remark-figure')
       ],
       
       processImages: false
