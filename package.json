@@ -2,45 +2,16 @@
   "name": "mua-familia",
   "private": true,
   "scripts": {
-    "develop": "gridsome develop",
-    "explore": "gridsome explore",
-    "upgrade": "yarn upgrade-interactive --latest",
-    "build": "gridsome build"
+    "dev": "nuxi dev",
+    "build": "nuxi build"
   },
   "scripts_backup": {
-    "prod": "python3 -m http.server --directory dist/"
-  },
-  "dependencies": {
-    "@gridsome/plugin-sitemap": "^0.4.0",
-    "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.6.4",
-    "autoprefixer": "^10.2.1",
-    "gridsome": "^0.7.23",
-    "gridsome-plugin-flexsearch": "^1.0.5",
-    "gridsome-plugin-gtm": "^0.1.1",
-    "gridsome-plugin-remark-prismjs-all": "^0.3.5",
-    "gridsome-source-static-meta": "github:noxify/gridsome-source-static-meta#master",
-    "hooper": "^0.3.4",
-    "medium-zoom": "^1.0.6",
-    "minimist": "^1.2.5",
-    "node-sass": "^5.0.0",
-    "pluralize": "^8.0.0",
-    "postcss": "^8.2.4",
-    "postcss-import": "12.0.1",
-    "postcss-loader": "^4.1.0",
-    "postcss-preset-env": "^6.7.0",
-    "remark-attr": "^0.11.1",
-    "rfs": "^9.0.3",
-    "sass-loader": "^10.1.1",
-    "tailwindcss": "^2.0.2",
-    "v-click-outside": "^3.1.2",
-    "vue-headroom": "^0.10.1",
-    "vue-infinite-loading": "^2.4.5",
-    "vue-slick-carousel": "^1.0.6"
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "gridsome-plugin-bundle-analyzer": "^1.0.0",
-    "gridsome-plugin-tailwindcss": "^4.1.1",
-    "tailwindcss-dark-mode": "^1.1.7"
+    "@vueuse/nuxt": "^7.4.1",
+    "nuxt-windicss": "^2.2.1",
+    "nuxt3": "latest",
+    "prettier": "^2.5.1"
   }
 }

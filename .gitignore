@@ -1,9 +1,8 @@
 *.log
-.cache
-.DS_Store
-.idea
-src/.temp
-node_modules
-dist
 .env
-.env.*
+.idea
+.netlify
+.nuxt
+.output
+node_modules
+nuxt.d.ts
