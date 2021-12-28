@@ -1,3 +1,5 @@
 <template>
-  <header class="py-4 text-center bg-light-700">nagłówek</header>
+  <header class="py-8 text-center bg-pink-100">
+    <nav>menu</nav>
+  </header>
 </template>

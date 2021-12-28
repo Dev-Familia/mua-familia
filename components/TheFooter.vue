@@ -1,3 +1,3 @@
 <template>
-  <footer class="py-4 text-center bg-light-700">stopka</footer>
+  <footer class="py-4 text-center bg-pink-100">stopka</footer>
 </template>
